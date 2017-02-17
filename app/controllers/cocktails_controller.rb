@@ -27,8 +27,8 @@ class CocktailsController < ApplicationController
   # def destroy
   # end
 
-  # def edit
-  # end
+  def edit
+  end
 
   private
   def find_cocktail
@@ -38,7 +38,7 @@ class CocktailsController < ApplicationController
   def cocktail_params
     params
       .require(:cocktail)
-      .permit(:name)
+      .permit(:name, :photo, :photo_cache)
   end
 
 end

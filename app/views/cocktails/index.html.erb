@@ -1,7 +1,26 @@
-<div class="text-center">
-  <h1>Cocktails list:</h1>
-  <% @cocktails.each do |cocktail| %>
-    <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
-  <% end %>
+<div class="container text-center">
+   <h1>Cocktails list:</h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <%= link_to new_cocktail_path do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'Cocktails.jpg', width: 400, height: 300, crop: :fill %>');" >
+          <div class="card-title">
+            <i class="features fa fa-plus fa-4x" aria-hidden="true"></i>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-4">
+    <%= link_to cocktail_path(cocktail) do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(cocktail.photo, width: 400, height: 300, crop: :fill)%>');">
+        <div class="card-title">
+          <h2><%=cocktail.name%></h2>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <% end %>
+  </div>
   <p><%= link_to 'Add a cocktail', new_cocktail_path, class:'btn btn-primary' %></p>
 </div>

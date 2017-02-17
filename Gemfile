@@ -40,6 +40,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 
 gem 'figaro'
+gem 'cloudinary', '1.1.0'
+gem 'carrierwave', '~> 0.11.2'
+
 
 
 # Use Capistrano for deployment
